@@ -1,0 +1,32 @@
+{% extends 'pmanager/base.html' %}
+{% block body %}
+    <style>
+    .col-form-label{
+        width: 100%;
+    }
+</style>
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-center text-info">إضافة الدعم المطلوب</h5>
+                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" novalidate>
+                               {% csrf_token %}
+                                  {% for foo in mub %}
+                                     <input class="form-control" type="hidden" id="mub" name="mub" value="{{ foo.id }}">
+                                  {% endfor %}
+                                <br>
+                                <input class="form-control" type="text" id="support" value=""  name="support">
+                                <br>
+                                 <button class="btn btn-outline-success col-12" type="submit">حفظ</button>
+                            </form>
+                        </div>
+                    </div>
+         </div>
+            <div class="col-4"></div>
+        </div>
+     </div>
+    <br>
+{% endblock %}

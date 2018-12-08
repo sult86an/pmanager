@@ -1,0 +1,45 @@
+                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" novalidate>
+                               {% csrf_token %}
+                            {% for stage in week_ar %}
+                                     <input class="form-control text-center" disabled type="text" id="title" name="title" value="{{ stage }}">
+                                     <input class="form-control text-center" disabled type="hidden" id="week_ar" name="week_ar" value="{{ stage.id }}">
+
+                                <br>
+                                 <table class="table table-striped">
+                                    <tr>
+                                        <td>#</td>
+                                        <td>المرحلة</td>
+                                        <td>الوزن من 100</td>
+                                        <td>تاريخ الإنتهاء</td>
+                                        <td>الإنجاز من 100</td>
+                                        <td>التقدم بالمرحلة</td>
+                                        <td class="text-center">التفاصيل</td>
+                                        <td>حفظ</td>
+                                    </tr>
+
+                                        {% for foo in stage.mub_r.stages_set.all %}
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td><input class="stage-btn" type="text" disabled name="stage" value="{{ foo.stage }}"></td>
+                                                <td ><input class="stage-btn" type="text" name="ratio" id="div{{ forloop.counter }}" value="{{ foo.ratio }}" disabled> </td>
+                                                <td><input class="stage-btn" type="text" name="end_date" value="{{ foo.end_date }}" disabled></td>
+                                                <td><input onchange="myfunc()" style="width: 50%" class="form-control" type="text" id="progress_num{{ forloop.counter }}" name="progress_num" value="">
+                                                </td>
+                                                <td><input  class="form-control" style="width: 50%" name="final_rate" value="" id="final{{ forloop.counter }}" type="text"></td>
+                                                <td>
+                                                    <textarea name="info" rows="2" cols="20"></textarea>
+                                                </td>
+                                            <td>
+
+                                            </td>
+                                            </tr>
+                                        <input id="count" name="count" type="hidden" value="{{ forloop.revcounter }}">
+                                        {% endfor %}
+
+                                    {% endfor %}
+                                </table>
+                                <hr>
+                                <br>
+                                 <button class="btn btn-outline-success col-4"  type="submit" style="margin-right: 33%">حفظ</button>
+                                <br>
+                            </form>

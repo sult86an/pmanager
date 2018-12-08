@@ -1,0 +1,35 @@
+
+{% extends 'pmanager/base.html' %}
+{% block title %}متابعة أداء المبادرات{% endblock %}
+
+{% block body %}
+    <style>
+
+    .col-6{
+            width: 50%;
+            font-size: 18pt;
+            text-align: center;
+            color: #34BAAB
+    }
+    </style>
+
+    <div class="center">
+        <div class="container">
+            <h3 class="text-center">مبادرات المكاسب السريعة</h3>
+            <div class="row" style="margin-top: 5%">
+                <div class="col-6" style="padding: 2%">
+                    <span>
+                       {% for foo in mub %}
+                             {{ foo.mub_name }}
+                       {% endfor %}
+
+                    </span>
+                 </div>
+                 <div class="col-6" style="padding: 2%">
+                            <label>نسبة الإنجاز </label><span>( %25 )</span>
+                 </div>
+             </div>
+        </div>
+    </div>
+{% endblock %}
+

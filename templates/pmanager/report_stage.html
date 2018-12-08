@@ -1,0 +1,42 @@
+{% extends 'pmanager/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <style>
+    .col-form-label{
+        width: 100%;
+    }
+</style>
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-center text-info">التقرير الأسبوعي</h5>
+                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" novalidate>
+                               {% csrf_token %}
+                                {{ form|crispy }}
+                                <br>
+                                 <button class="btn btn-outline-success col-12" type="submit">حفظ</button>
+                            </form>
+                        </div>
+                    </div>
+         </div>
+            <div class="col-4"></div>
+        </div>
+     </div>
+    <br>
+    <br>
+    <script>
+    function myfunc() {
+            var a = document.getElementById('id_ratio').value;
+            var b = document.getElementById('id_progress_num').value;
+            var d = parseInt(a);
+            var e = parseInt(b);
+            var final =( d * e) / 100;
+            document.getElementById('id_final_rate').value = final;
+    }
+
+
+    </script>
+{% endblock %}

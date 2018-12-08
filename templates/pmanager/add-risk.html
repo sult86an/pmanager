@@ -1,0 +1,60 @@
+{% extends 'pmanager/base.html' %}
+{% block body %}
+    <style>
+    .col-form-label{
+        width: 100%;
+    }
+</style>
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-center text-info">إضافة المخاطر</h5>
+                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" novalidate>
+                               {% csrf_token %}
+                                  {% for foo in mub_risk %}
+                                     <input class="form-control" type="hidden" id="mub_risk" name="mub_risk" value="{{ foo.id }}">
+                                  {% endfor %}
+                                <br>
+                                <label for="risk">الخطر</label>
+                                <input class="form-control" type="text" id="risk" value=""  name="risk">
+                                <br>
+                                 <label for="owner_risk">المالك</label>
+                                <input class="form-control" type="text" id="owner_risk" value=""  name="owner_risk">
+                                <br>
+                                <label for="probability">الاحتمالية</label>
+                                <select class="form-control" name="probability" id="probability">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                    <option value="60">60</option>
+                                    <option value="70">70</option>
+                                    <option value="80">80</option>
+                                    <option value="90">90</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <br>
+                                <label for="influence">التأثير</label>
+                                <select class="form-control" name="influence" id="influence">
+                                    <option value="منخفض">منخفض</option>
+                                    <option value="متوسط">متوسط</option>
+                                    <option value="عالي">عالي</option>
+                                </select>
+                                <br>
+                                <label for="plan">خطة التعامل</label>
+                                <textarea rows="4" cols="40" class="form-control" type="" id="plan"   name="plan"></textarea>
+                                <br>
+                                 <button class="btn btn-outline-success col-12" type="submit">حفظ</button>
+                            </form>
+                        </div>
+                    </div>
+         </div>
+            <div class="col-4"></div>
+        </div>
+     </div>
+    <br>
+{% endblock %}

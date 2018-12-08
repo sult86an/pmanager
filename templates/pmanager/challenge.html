@@ -1,0 +1,69 @@
+{% extends 'pmanager/base.html' %}
+{% block title %}المبادرات{% endblock %}
+{% block body %}
+
+    <div class="center">
+         <div class="container">
+         <div class="row">
+             <div class="col-7">
+                 <h3 style="text-align: left">التحديات</h3>
+             </div>
+            <div class="col-4">
+                   <a href="{% url 'pmanager:add-challenge'   %}">
+                    <h6 style="text-align:left; color: #84a0ba; margin-top: 3.5%">إضافة
+                        <i class="fas fa-plus"></i>
+                    </h6>
+
+                 </a>
+             </div>
+         </div>
+
+        <br>
+        <div class="row">
+            <div class="col-12">
+                  <table class="table table-responsive-lg">
+                            <tr>
+                                <td>#</td>
+                                <td>التحدي</td>
+                                <td>المالك</td>
+                                <td>الحالة</td>
+                                <td>التفاصيل</td>
+                                <td>تعديل</td>
+                                <td>حذف</td>
+                            </tr>
+                 {% for challenge in challenges %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ challenge.challenge }}</td>
+                                <td>{{ challenge.owner }}</td>
+                                <td>{{ challenge.status }}</td>
+                                <td>{{ challenge.info }}</td>
+                                <td>
+                                    <form class="inline-group" action="{% url 'pmanager:update-challenge' challenge.pk %}" method="get">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="challenge_id" value="{{ challenge.pk }}">
+                                        <button class="btn inline" type="submit" style="background: none; border: none">
+                                            <i class="fas fa-edit" style="color: orange"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form class="inline-group" action="{% url 'pmanager:challenge-delete' challenge.pk %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="challenge_id" value="{{ challenge.pk }}">
+                                        <button class="btn inline" type="submit" style="background: none; border: none">
+                                            <i class="fas fa-trash-alt" style="color: #b21818"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                    {% empty %}
+                        لا توجد بيانات
+                    {% endfor %}
+                 </table>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

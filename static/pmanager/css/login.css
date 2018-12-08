@@ -1,0 +1,47 @@
+@font-face { font-family: Tajawal-Regular; src: url('../fonts/Tajawal-Regular.ttf'); }
+@font-face { font-family: DroidKufi-Bold; font-weight: bold; src: url('../fonts/DroidKufi-Bold.ttf');}
+
+body {
+    font-family:  Tajawal-Regular !important;
+		direction:rtl !important;
+		background-color:#fff ;
+  	overflow-x: hidden; /* Hide horizontal scrollbar */
+  	overflow-y: scroll; /* Add vertical scrollbar */
+    color: white !important;
+}
+input:focus {
+    border-color: inherit !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.logo{
+  margin: 5% 5% 5% 5% ;
+}
+.form-signin{
+  padding: 5% 10% 0 10%;
+  box-shadow: rgba(171, 139, 110, 0.380392) 0 0 12px !important;
+  border:1px solid rgba(0,0,0,.35) !important;
+  border-radius: 15px;
+}
+.signUp-form{
+    padding: 5% 10% 0 10%;
+    box-shadow: rgba(171, 139, 110, 0.380392) 0 0 12px !important;
+    border:1px solid rgba(0,0,0,.35) !important;
+    border-radius: 15px;
+}
+.login-form{
+    padding: 5% 10% 5% 10%;
+}
+h3{
+    color: #919191 !important;
+
+  font-weight: bold !important;
+}
+h6{
+  color:#282B2F !important;
+
+  font-weight: bold !important;
+}
+a{
+  text-decoration: none !important;
+}

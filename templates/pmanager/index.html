@@ -1,0 +1,59 @@
+{% extends 'pmanager/base.html' %}
+{% block title %}المبادرات{% endblock %}
+{% block body %}
+
+    <style>
+           body,html{
+            width: 100%;
+            background-color: #f7f7f9 !important;
+        }
+     #login-title{
+         border-top: 1px solid #ADA9AE ;
+         border-right: 2px solid #ADA9AE ;
+         width: 70%;
+         padding-top: 1%;
+         color: #90918a ;
+         font-size: 80%;
+     }
+        .form-control{
+            width: 70%;
+            margin-right: 15%;
+        }
+        img{
+            margin-top: 50%;
+        }
+    </style>
+
+<div class="container" >
+
+    <div class="row"  style="margin-top: 12%;">
+        <div class="col-2">
+             {% load staticfiles %}
+            <img src="{% static 'pmanager/img/logo.png' %}" alt="">
+        </div>
+        <div class="col" style="height: 100%; padding: 2%; border: 1px solid lightgrey;  background-color: #fff" >
+            <h4 class="text-center" style="padding-bottom: 2%; color: #9e875d;  ">مبادرات المكاسب السريعة</h4>
+
+            <label id="login-title" >دخول قادة المبادرات</label>
+
+            <div style="text-align: right;  margin: 3%">
+                <form action="{% url 'pmanager:user'  %}" method="post">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="اسم المستخدم" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة المرور" required>
+                    </div>
+                    <button type="submit" value="Login" name="" class="btn btn-outline-dark" style="margin-right: 15%; border-color: #CFB37D; color: #9e875d; background-color: #fff  ">تسجيل الدخول</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-2">
+            <img src="{% static 'pmanager/img/2030.png' %}" alt="" style="width: 100%; margin-right: 30%">
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

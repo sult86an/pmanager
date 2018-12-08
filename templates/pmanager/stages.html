@@ -1,0 +1,70 @@
+{% extends 'pmanager/base.html' %}
+{% block title %}المبادرات{% endblock %}
+{% block body %}
+
+        <div class="center">
+             <div class="container">
+             <div class="row">
+             <div class="col-7">
+                 <h3 style="text-align: left">مراحل المشروع</h3>
+             </div>
+            <div class="col-4">
+                   <a href="{% url 'pmanager:add-stage' %}">
+                    <h6 style="text-align:left; color: #84a0ba; margin-top: 3.5%">إضافة
+                        <i class="fas fa-plus"></i>
+                    </h6>
+
+                 </a>
+             </div>
+         </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+
+
+           <table class="table table-responsive-lg">
+                            <tr>
+                                <td>#</td>
+                                <td>المرحلة</td>
+                                <td>الوزن</td>
+                                <td>تاريخ الإنتهاء</td>
+                                <td>تعديل</td>
+                                <td>حذف</td>
+                            </tr>
+                 {% for stage in stages %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ stage.stage }}</td>
+                                <td>{{ stage.ratio }}%</td>
+                                <td>{{ stage.end_date }}</td>
+                                 <td>
+                                   <form class="inline-group" action="{% url 'pmanager:update-stage' stage.pk %}" method="get">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="stage_id" value="{{ stage.pk }}">
+                                        <button class="btn inline" type="submit" style="background: none; border: none">
+                                            <i class="fas fa-edit" style="color: orange"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                   <form class="inline-group" action="{% url 'pmanager:stage-delete' stage.pk %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="stage_id" value="{{ stage.pk }}">
+                                        <button class="btn inline" type="submit" style="background: none; border: none">
+                                            <i class="fas fa-trash-alt" style="color: #b21818"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                    {% empty %}
+                        لا توجد بيانات
+                    {% endfor %}
+                 </table>
+
+            </div>
+        </div>
+    </div>
+        </div>
+
+{% endblock %}

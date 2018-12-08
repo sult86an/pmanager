@@ -1,0 +1,39 @@
+{% extends 'pmanager/base.html' %}
+{% block body %}
+    <style>
+    .col-form-label{
+        width: 100%;
+    }
+</style>
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-center text-info">إنشاء تقرير</h5>
+                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" novalidate>
+                               {% csrf_token %}
+                                  {% for foo in mub_r %}
+                                     <input class="form-control" type="hidden" id="mub_r" name="mub_r" value="{{ foo.id }}">
+                                  {% endfor %}
+                                <br>
+                                <label for="week_ar">اختر الأسبوع</label>
+                                <select class="form-control" name="week_ar" id="week_ar">
+                                    <option value="الأسبوع الأول">الأسبوع الأول</option>
+                                    <option value="الأسبوع الثاني">الأسبوع الثاني</option>
+                                    <option value="الأسبوع الثالث">الأسبوع الثالث</option>
+                                </select>
+                                <input type="hidden" name="week_no" id="week_no" value="week_no">
+                                <input type="hidden" name="ready" id="ready" value="False">
+                                <br>
+                                 <button class="btn btn-outline-success col-12" type="submit">حفظ</button>
+                            </form>
+                        </div>
+                    </div>
+         </div>
+            <div class="col-4"></div>
+        </div>
+     </div>
+    <br>
+{% endblock %}

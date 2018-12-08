@@ -1,0 +1,130 @@
+@font-face { font-family: Tajawal-Regular; src: url('../fonts/Tajawal-Regular.ttf'); }
+@font-face { font-family: DroidKufi-Bold; font-weight: bold; src: url('../fonts/DroidKufi-Bold.ttf');}
+
+html,body {
+    font-family:  Tajawal-Regular !important;
+		direction:rtl !important;
+		background-color: #F7F7F9 !important;
+       // overflow-x: hidden; /* Hide horizontal scrollbar */
+       // overflow-y: scroll; /* Add vertical scrollbar */
+
+}
+input:focus {
+    border-color: inherit !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+a{
+  text-decoration: none !important;
+}
+.nav_top{
+     background-color: #fff !important ;
+    border-bottom:2px solid #D0B57E !important;
+    padding-bottom: 3%;
+}
+
+#logout{
+    color:#7DBAAE !important;
+    width: 150px;
+    text-align: center;
+}
+#logout:hover{
+    background-color: #34BAAB ;
+    color: white !important;
+    border-radius: 15px;
+    padding: 13px 3px ;
+    width: 150px;
+    text-align: center;
+}
+.nav-item{
+    padding: 0;
+    margin-right: 5%;
+    font-size: 13pt;
+    width: auto;
+}
+.fixed-bottom{
+    padding-top: .5%;
+    padding-bottom: .5%;
+    border-top: 1px solid #D0B57E !important;
+    color: gray !important;
+    text-align: center;
+}
+
+.center{
+	background:#fff;
+	margin:80px auto 0 auto;
+	width:90%;
+	padding:5px;
+	border-radius:20px;
+	box-shadow: rgba(171, 139, 110, 0.380392) 0 0 12px;
+    border:1px solid rgba(0,0,0,.5);
+}
+#chartdiv {
+    width		: 100%;
+    height		: 470px;
+    font-size	: 11px;
+    font-family:  Tajawal-Regular !important;
+    direction: rtl !important;
+}
+.col {
+    height: 100px;
+    width: 100%;
+    margin: 1%;
+    border: 1px solid #34BAAB;
+    border-radius: 15px;
+    margin-bottom: 25px !important;
+    font-size: 18pt;
+    text-align: center;
+    color: #34BAAB
+}
+
+
+
+span{
+    margin-right: 4%;
+}
+.mbdView:hover{
+    background-color: #34BAAB;
+    color: white;
+}
+/* leader */
+
+.fa-stack{
+   font-size: 10pt !important;
+}
+.leader_table{
+    color: #54827a !important;
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+
+/* detail page */
+
+
+
+
+
+
+
+
+/* detail page */
+
+#detail_title{
+    background-color: #E7E7E7;
+    color: #000;
+    padding:5px;
+    border-radius: 5px;
+}
+.detail_card{
+    color: #4f4f4f;
+    border-radius: 5px !important;
+    padding: 5px;
+}
+.title_background{
+    background-color: #e8e8e8;
+    font-weight: bold;
+}
+
+/* login */
+

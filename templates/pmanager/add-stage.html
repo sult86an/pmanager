@@ -1,0 +1,39 @@
+{% extends 'pmanager/base.html' %}
+{% block body %}
+    <style>
+    .col-form-label{
+        width: 100%;
+    }
+</style>
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-center text-info">إضافة مراحل المشروع</h5>
+                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" novalidate>
+                               {% csrf_token %}
+                                  {% for foo in mub %}
+                                     <input class="form-control" type="hidden" id="mub" name="mub" value="{{ foo.id }}">
+                                  {% endfor %}
+                                <br>
+                                <label for="stage">المرحلة</label>
+                                <input class="form-control" type="text" id="stage" value=""  name="stage">
+                                <br>
+                                 <label for="ratio">الوزن</label>
+                                <input class="form-control" type="number" id="ratio" value=""  name="ratio">
+                                <br>
+                                <label for="end_date">تاريخ الانتهاء</label>
+                                <input class="form-control" type="date" name="end_date" id="end_date">
+                                <br>
+                                 <button class="btn btn-outline-success col-12" type="submit">حفظ</button>
+                            </form>
+                        </div>
+                    </div>
+         </div>
+            <div class="col-4"></div>
+        </div>
+     </div>
+    <br>
+{% endblock %}
